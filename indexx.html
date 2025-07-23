@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Website</title>
+    <style>
+        /* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: white;
+}
+
+/* Navigation Bar */
+.navbar {
+    background: rgba(15, 15, 15, 0.9);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul li {
+    margin: 0 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.navbar ul li a:hover {
+    background: #1e90ff;
+    color: black;
+    transform: scale(1.1);
+}
+
+/* Sections */
+.section {
+    display: none;
+    padding: 120px 20px;
+    min-height: 100vh;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.active {
+    display: block;
+}
+
+/* Home & About Section */
+.section h1,
+.section p {
+    text-align: left;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Calculator */
+.calculator {
+    width: 360px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin: 50px auto;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+
+#home h1{
+font-size: 62px;
+margin: 62px;
+}
+
+#home img{
+    width: 300px;
+   float: right;
+   border-radius: 32px;
+   margin-right: 72px;
+   margin-top: 100px;
+}
+
+#home p{
+    margin: 72px;
+    font-size: 20px;
+}
+
+
+
+#about h1{
+    font-size: 42px;
+    margin: 62px;
+}
+
+#about p{
+    margin: 62px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+
+.display input {
+    width: 95%;
+    height: 80px;
+    text-align: right;
+    font-size: 2rem;
+    padding: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 10px;
+}
+
+/* Buttons Grid */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 15px;
+}
+
+.btn {
+    width: 100%;
+    height: 60px;
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Button Colors */
+.operator {
+    background: #ffff05d0;
+}
+
+.operator:hover {
+    background: #e64a19;
+}
+
+.equal {
+    background: #4caf50;
+    grid-column: span 2;
+}
+
+.equal:hover {
+    background: #388e3c;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+.clear {
+    background: #f44336;
+}
+
+.clear:hover {
+    background: #d32f2f;
+}
+
+.delete {
+    background: #1c061f;
+}
+
+.delete:hover {
+    background: #7b1fa2;
+}
+
+/* Footer */
+footer {
+    background: rgba(10, 10, 10, 0.9);
+    text-align: center;
+    padding: 15px 0;
+    color: white;
+    font-size: 16px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home" onclick="showSection('home')">Home</a></li>
+            <li><a href="#about" onclick="showSection('about')">About</a></li>
+            <li><a href="#calculator" onclick="showSection('calculator')">Calculator</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <img src="home.jpeg" alt="pic">
+        <h1>Welcome to the <span>SaadiiCal</span> Calculator Website </h1>
+        <p>This website provides a simple and effective calculator for quick calculations.</p>
+        
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h1>About This Calculator</h1>
+        <p>  Welcome to our <b>Calculator Web App!</b> This application is designed to provide a <b>simple, fast, and accurate</b> way to perform basic arithmetic calculations. Whether you need to add, subtract, multiply, or divide, our calculator makes it easy with a <b>user-friendly interface</b> and a <b>modern design</b>.  Our goal is to create a <b>seamless user experience</b> with a responsive design that works across all devices. Stay tuned for more features and updates in the future! </p>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="section">
+        <div class="calculator">
+            <div class="display">
+                <input type="text" id="result" disabled>
+            </div>
+            <div class="buttons">
+                <button class="btn clear" onclick="clearScreen()">C</button>
+                <button class="btn operator" onclick="pressKey('/')">/</button>
+                <button class="btn operator" onclick="pressKey('*')">*</button>
+                <button class="btn delete" onclick="deleteLast()">DEL</button>
+
+                <button class="btn" onclick="pressKey('7')">7</button>
+                <button class="btn" onclick="pressKey('8')">8</button>
+                <button class="btn" onclick="pressKey('9')">9</button>
+                <button class="btn operator" onclick="pressKey('-')">-</button>
+
+                <button class="btn" onclick="pressKey('4')">4</button>
+                <button class="btn" onclick="pressKey('5')">5</button>
+                <button class="btn" onclick="pressKey('6')">6</button>
+                <button class="btn operator" onclick="pressKey('+')">+</button>
+
+                <button class="btn" onclick="pressKey('1')">1</button>
+                <button class="btn" onclick="pressKey('2')">2</button>
+                <button class="btn" onclick="pressKey('3')">3</button>
+                <button class="btn equal" onclick="calculateResult()">=</button>
+
+                <button class="btn zero" onclick="pressKey('0')">0</button>
+                <button class="btn" onclick="pressKey('.')">.</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Designed by <strong>Saadiihashmi</strong> | &copy; 2025 All Rights Reserved</p>
+    </footer>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            showSection("home");
+        });
+        
+        function showSection(sectionId) {
+            document.querySelectorAll(".section").forEach(section => {
+                section.classList.remove("active");
+            });
+            document.getElementById(sectionId).classList.add("active");
+        }
+        
+        let resultScreen = document.getElementById("result");
+        
+        function pressKey(value) {
+            resultScreen.value += value;
+        }
+        
+        function clearScreen() {
+            resultScreen.value = "";
+        }
+        
+        function deleteLast() {
+            resultScreen.value = resultScreen.value.slice(0, -1);
+        }
+        
+        function calculateResult() {
+            try {
+                resultScreen.value = eval(resultScreen.value);
+            } catch {
+                resultScreen.value = "Error";
+            }
+        }
+        
+
+    </script>
+
+</body>
+</html>
